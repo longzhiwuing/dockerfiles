@@ -1,4 +1,5 @@
 #构建命令 docker build -t lzwing/jenkins:0.0.1 .
+#运行 docker run -d -p 9000:8080 -v /root/docker/jenkins_home:/var/jenkins_home --name lzwing-jenkins c1878ca6cbe0
 
 FROM centos:7
 MAINTAINER lzwing "chenzhongyong@cecdat.com"
