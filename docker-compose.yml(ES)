@@ -1,0 +1,19 @@
+version: '2'
+services:
+  elasticsearch-node1:
+    image: bitnami/elasticsearch:latest
+    volumes:
+      - /usr/local/MyDockerCompose/Elasticsearch/esdata:/bitnami/elasticsearch
+    environment:
+      - ELASTICSEARCH_CLUSTER_NAME=elasticsearch-cluster
+      - ELASTICSEARCH_CLUSTER_HOSTS=elasticsearch-node1,elasticsearch-node2
+      - ELASTICSEARCH_NODE_NAME=elastic-node1
+
+  elasticsearch-node2:
+    image: bitnami/elasticsearch:latest
+    volumes:
+      - /usr/local/MyDockerCompose/Elasticsearch/esdata:/bitnami/elasticsearch
+    environment:
+      - ELASTICSEARCH_CLUSTER_NAME=elasticsearch-cluster
+      - ELASTICSEARCH_CLUSTER_HOSTS=elasticsearch-node1,elasticsearch-node2
+      - ELASTICSEARCH_NODE_NAME=elastic-node2
