@@ -1,14 +1,12 @@
 version: '2'
 services:
   application:
-    image: 'bitnami/jenkins:latest'
-    ports:
-      - '8085:8080'
-      - '443:8443'
-    environment:
-      - JENKINS_PASSWORD=123456
+    image: jenkins:latest
     volumes:
-      - 'jenkins_data:/bitnami/jenkins'
-volumes:
-  jenkins_data:
-    driver: local
+      - /usr/local/MyDockerCompose/jenkins/jenkins_home:/var/jenkins_home
+      - /bin/docker:/usr/bin/docker
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    ports:
+      - "8085:8080"
+      - "50000:50000"
