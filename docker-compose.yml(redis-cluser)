@@ -1,0 +1,67 @@
+#参考https://www.cnblogs.com/chenchuxin/p/8404699.html
+version: '3.4'
+
+x-image:
+ &default-image
+ publicisworldwide/redis-cluster
+x-restart:
+ &default-restart
+ always
+x-netmode:
+ &default-netmode
+ host
+
+services:
+ redis1:
+  image: *default-image
+  network_mode: *default-netmode
+  restart: *default-restart
+  volumes:
+  - /data/redis/7001/data:/data
+  environment:
+  - REDIS_PORT=7001
+
+ redis2:
+  image: *default-image
+  network_mode: *default-netmode
+  restart: *default-restart
+  volumes:
+  - /data/redis/7002/data:/data
+  environment:
+  - REDIS_PORT=7002
+
+ redis3:
+  image: *default-image
+  network_mode: *default-netmode
+  restart: *default-restart
+  volumes:
+  - /data/redis/7003/data:/data
+  environment:
+  - REDIS_PORT=7003
+
+ redis4:
+  image: *default-image
+  network_mode: *default-netmode
+  restart: *default-restart
+  volumes:
+  - /data/redis/7004/data:/data
+  environment:
+  - REDIS_PORT=7004
+
+ redis5:
+  image: *default-image
+  network_mode: *default-netmode
+  restart: *default-restart
+  volumes:
+  - /data/redis/7005/data:/data
+  environment:
+  - REDIS_PORT=7005
+
+ redis6:
+  image: *default-image
+  network_mode: *default-netmode
+  restart: *default-restart
+  volumes:
+  - /data/redis/7006/data:/data
+  environment:
+  - REDIS_PORT=7006
