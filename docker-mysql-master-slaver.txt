@@ -1,0 +1,7 @@
+change master to master_host='172.16.21.133',master_user='backup',master_password='123456',master_log_file='mysql-bin.000006',master_log_pos=320,master_port=3307;
+
+
+
+docker run --name mastermysql -d -p 3307:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /usr/local/dockerCompose/mysql-master-slave/master/data:/var/lib/mysql -v /usr/local/dockerCompose/mysql-master-slave/master/conf/my.cnf:/etc/mysql/my.cnf  mysql:5.6
+
+docker run --name slavermysql -d -p 3308:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /usr/local/dockerCompose/mysql-master-slave/slaver/data:/var/lib/mysql -v /usr/local/dockerCompose/mysql-master-slave/slaver/conf/my.cnf:/etc/mysql/my.cnf  mysql:5.6
